@@ -1,29 +1,25 @@
 # majority
 
+<strong>変更があれば　Readme.mdに変更を適用してください</strong>
+
 ## Project setup
-```
+
 yarn install
-```
 
-### Compiles and hot-reloads for development
-```
+### local環境 Vue 実行
+
 yarn run serve
-```
 
-### Compiles and minifies for production
-```
+### build
+
 yarn run build
-```
 
-### Run your tests
-```
-yarn run test
-```
+## Firebase deploy
 
-### Lints and fixes files
-```
-yarn run lint
-```
+firebase deploy
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## deploy Folder
+
+- dist
+
+- 変更したらyarn run build で「dist」を生成してから実行してください

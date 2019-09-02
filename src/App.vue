@@ -1,4 +1,5 @@
 <template>
+ 
   <div>
     <myheader></myheader>
     <p v-if= "msg.length > 0">
@@ -9,7 +10,12 @@
     </p>
     <input type="text" v-model="msg">
     <button @click="clear()">clear</button>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/page1">page1</router-link> |
+    <router-link to="/page2">page2</router-link> 
+    <router-view/>
   </div>
+
 </template>
 
 <script>

@@ -10,7 +10,7 @@
     </p>
     <input type="text" v-model="msg">
     <button @click="clear()">clear</button>
-    <router-link to="/">Home</router-link> |
+    <router-link to="./Views/About">About</router-link> |
     <router-link to="/page1">page1</router-link> |
     <router-link to="/page2">page2</router-link> 
     <router-view/>

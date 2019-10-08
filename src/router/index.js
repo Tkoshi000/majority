@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Output from '@/components/Output' //①import
+import Output from '@/components/Output' //①
+import Metro from '@/components/Metro' 
 
 
 Vue.use(Router)
@@ -14,11 +15,17 @@ export default new Router({
       component: HelloWorld
     },
 
-//②profile
-   {
+    //②profile
+    {
       path: '/outputs',
       name: 'Output',
       component: Output
+    }
+    ,
+    {
+      path: '/metros',
+      name: 'Metro',
+      componet: Metro
     }
   ]
 })

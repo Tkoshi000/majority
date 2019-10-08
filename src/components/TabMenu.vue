@@ -1,4 +1,4 @@
-<!-- sample https://qiita.com/abouch/items/35d7a202f3e74c7d4c3e-->
+<!-- sample https://qiita.com/abouch/items/35d7a202f3e74c7d4c3e#%E3%83%AB%E3%83%BC%E3%83%88%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B-->
 <template>
   <div>
     <ol>
@@ -19,7 +19,7 @@ export default {
       items: [
         { title: 'top', path: '/' },
         { title: 'profile', path: '/profile' },
-        { title: 'skills', path: '/skills' },
+        { title: 'metro', path: '/metros' },
         { title: 'outputs', path: '/outputs' }
       ]
     }
@@ -30,7 +30,7 @@ export default {
 <style scoped>
 
 ol {
-  margin-left: auto;
+  /*margin-left: auto;*/
   width: 480px;
   display:flex;
   justify-content: center;

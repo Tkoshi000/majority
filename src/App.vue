@@ -9,12 +9,15 @@
 
 import TabMenu from '@/components/TabMenu'
 
+
 export default {
   name: 'App',
   components: {
     TabMenu
   }
 }
+
+
 </script>
 
 <style>

@@ -23,3 +23,8 @@ firebase deploy
 - dist
 
 - 変更したらyarn run build で「dist」を生成してから実行してください
+
+### 駅データの取得
+
+- 以下を使いました
+- http://www.kamelong.com/RosenzuAPI/

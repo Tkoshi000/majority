@@ -17,12 +17,12 @@ Vue.config.productionTip = false
 
 // Initialize Firebase
 var config = {
-  apiKey: "",
+  apiKey: "AIzaSyAQx8yfe9eECUzPV9zMVM48HT9affc29k4",
   authDomain: "metromaj-f5599.firebaseapp.com",
   databaseURL: "https://metromaj-f5599.firebaseio.com/",
   projectId: "metromaj-f5599",
   storageBucket: "metromaj-f5599.appspot.com",
-  messagingSenderId: ""
+  messagingSenderId: "505049650501"
 }
 firebase.initializeApp(config)
 

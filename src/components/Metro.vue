@@ -1,5 +1,5 @@
 <template>
-  <div class="output">
+  <div class="metro">
     <div class="content" v-for="i in 6" :key=i>
     <h3> {{ name }} </h3>
     <p> {{ text }} </p>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Output',
+  name: 'Metro',
   data () {
     return {
       name: 'カメラアプリを作成した',
@@ -22,7 +22,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-div.output {
+div.metro {
   text-align: center;
 }
 

@@ -8363,6 +8363,11 @@ vue-loader@^15.7.0:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-nl2br@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/vue-nl2br/-/vue-nl2br-0.1.2.tgz#ee5c3258d3333cc1053b8668b02ff87b1f40419e"
+  integrity sha512-QMNwuEo9HcpjxR5QXVb6Nu2dyY1O6GKXNIwGcQmqVdayk/F9ke2drEi3iLxZ/sfboimHOzuGWcuYnHtqhQaBkg==
+
 vue-onsenui@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/vue-onsenui/-/vue-onsenui-2.6.2.tgz#f2f7b9eb03c5666f15afda4f4cd01489ef614510"

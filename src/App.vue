@@ -23,7 +23,7 @@
     </div>
     
 
-    <div v-for="(value) in localStaion" key:id>
+    <div v-for="(value) in localStaion" :key="value.id">
       <button v-if="value.Visible" >{{value.name}}</button>
     </div>
 
@@ -68,8 +68,6 @@ export default {
     TabMenu,
     Nl2br
   },
-  
-  
   data(){
     return {
       user: {},  // ユーザー情報
@@ -118,10 +116,10 @@ export default {
     
     childUpdate(snap){
         var database = firebase.database();
-        ref.once('Station', function(snapshot) {
-          snapshot.forEach(function(childSnapshot) {
+        ref.once('Station', (snapshot) => {
+          snapshot.forEach((childSnapshot) => {
             var childKey = childSnapshot.key;
-            Station = childSnapshot.val();
+            this.Station = childSnapshot.val();
             
           });
         });

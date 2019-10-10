@@ -15,6 +15,20 @@
     </header>
     <!-- <tab-menu></tab-menu>
     <router-view/> -->
+    <div>
+      <div v-for="(value) in LineListName">
+      <button onclick="">{{value.linename}}</button>
+      </div>
+    
+    </div>
+    
+
+    <div v-for="(value) in localStaion" key:id>
+      <button v-if="value.Visible" >{{value.name}}</button>
+    </div>
+
+    
+   
 
     <section v-for="{ key, name, image, message } in chat" :key="key" class="item">
         <div class="item-image"><img :src="image" width="40" height="40"></div>
@@ -22,10 +36,12 @@
           <div class="item-name">{{ name }}</div>
           <div class="item-message">
             <nl2br tag="div" :text="message"/>
+            
           </div>
         </div>
       </section>
       <!-- 入力フォーム -->
+      <!--
     <form action="" @submit.prevent="doSend" class="form">
       <textarea
         v-model="input"
@@ -33,6 +49,7 @@
         @keydown.enter.exact.prevent="doSend"></textarea>
       <button type="submit" :disabled="!user.uid" class="send-button">Send</button>
     </form>
+    -->
   </div>
 </template>
 
@@ -43,7 +60,7 @@ import TabMenu from '@/components/TabMenu'
 import firebase from 'firebase'
 // 改行を <br> タグに変換するモジュール
 import Nl2br from 'vue-nl2br'
-
+import localJson from './assets/MetroList.json'
 
 export default {
   name: 'App',
@@ -51,11 +68,21 @@ export default {
     TabMenu,
     Nl2br
   },
+  
+  
   data(){
     return {
       user: {},  // ユーザー情報
       chat: [],  // 取得したメッセージを入れる配列
-      input: ''  // 入力したメッセージ
+      input: '',  // 入力したメッセージ
+      Station: [], //設定している駅
+      Color: '',
+      localStaion: localJson.Station,
+      StationName: '',
+      LineListName: localJson.LineList,
+      MidousujiSort: 0,
+
+
     }
   },
   created() {
@@ -88,6 +115,27 @@ export default {
         window.scrollTo(0, document.body.clientHeight)
       })
     },
+    
+    childUpdate(snap){
+        var database = firebase.database();
+        ref.once('Station', function(snapshot) {
+          snapshot.forEach(function(childSnapshot) {
+            var childKey = childSnapshot.key;
+            Station = childSnapshot.val();
+            
+          });
+        });
+        
+    },
+    
+    readColor(){
+      let updates = {}
+      updates['Staion/Color'] = "White"
+      firebaseDatabase.ref().update(updates) 
+    },
+
+
+
     // 受け取ったメッセージをchatに追加
     // データベースに新しい要素が追加されると随時呼び出される
     childAdded(snap) {

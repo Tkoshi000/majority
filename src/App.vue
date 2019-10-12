@@ -2,55 +2,45 @@
 <template>
   <div id="app">
     <header class="header">
-      <h1>OsakaMetro Test</h1>
+      <h1><img src="@/assets/logo.png" alt=""></h1>
+    </header>
+
+    <div class="wrapper">
       <!-- ログイン時にはフォームとログアウトボタンを表示 -->
       <div v-if="user.uid" key="login">
         [{{ user.displayName }}]
         <button type="button" @click="doLogout">ログアウト</button>
       </div>
+
       <!-- 未ログイン時にはログインボタンを表示 -->
       <div v-else key="logout">
-        <button type="button" @click="doLogin">ログイン</button>
-      </div>
-    </header>
-    <!-- <tab-menu></tab-menu>
-    <router-view/> -->
-    <div>
-      <div v-for="(value) in LineListName">
-      <button onclick="">{{value.linename}}</button>
-      </div>
-    
-    </div>
-    
+        <select name="" id="" class="select_login">
+          <option value="red">赤</option>
+          <option value="blue">青</option>
+          <option value="">admin</option>
+        </select>
 
-    <div v-for="(value) in localStaion" :key="value.id">
-      <button v-if="value.Visible" >{{value.name}}</button>
-    </div>
+        <button type="button" @click="doLogin" class="btn_login">ログイン</button>
+      </div>
 
-    
-   
-<!--
-    <section v-for="{ key, name, image, message } in chat" :key="key" class="item">
-        <div class="item-image"><img :src="image" width="40" height="40"></div>
-        <div class="item-detail">
-          <div class="item-name">{{ name }}</div>
-          <div class="item-message">
-            <nl2br tag="div" :text="message"/>
-            
-          </div>
+      <!-- <tab-menu></tab-menu>
+      <router-view/> -->
+      <div class="block_line">
+        <h2 class="title">路線を選択</h2>
+        <div v-for="(value) in LineListName" class="row_line">
+          <button onclick="" class="btn_line">{{value.linename}}</button>
         </div>
-      </section>
-      -->
-      <!-- 入力フォーム -->
-      <!--
-    <form action="" @submit.prevent="doSend" class="form">
-      <textarea
-        v-model="input"
-        :disabled="!user.uid"
-        @keydown.enter.exact.prevent="doSend"></textarea>
-      <button type="submit" :disabled="!user.uid" class="send-button">Send</button>
-    </form>
-    -->
+      </div>
+      
+      <div class="block_station">
+        <h2 class="title">獲得する駅を選択</h2>
+        <div class="row_station" v-for="(value) in localStaion" key:id>
+          <button v-if="value.Visible" class="btn_station">{{value.name}}</button>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </template>
 
@@ -168,92 +158,120 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 
-* {
+*{
   margin: 0;
-  box-sizing: border-box;
 }
-.header {
-  background: #3ab383;
-  margin-bottom: 1em;
-  padding: 0.4em 0.8em;
+body{
+  font-family: "游ゴシック", "Yu Gothic", sans-serif;
+}
+.header{
+  background: #1f2875;
+  padding: 10px 0;
+}
+.header h1{
+  margin-bottom: 0;
+}
+.header img{
+  display: block;
+  margin: 0 auto;
+  height: 30px;
+}
+.wrapper{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 15px;
+}
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+.select_login{
+  display: block;
+  width: 100%;
+  padding: 8px 0 8px 8px;
+  margin-bottom: 10px;
+}
+.btn_login{
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  background: #1f2875;
   color: #fff;
 }
-.content {
-  margin: 0 auto;
-  padding: 0 10px;
-  max-width: 600px;
-}
-.form {
-  position: fixed;
+.block_line{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  height: 80px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.title{
+  color: #1f2875;
+  border-bottom: 2px solid #1f2875;
   width: 100%;
-  background: #f5f5f5;
+  font-size: 20px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
 }
-.form textarea {
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  height: 4em;
-  width: calc(100% - 6em);
-  resize: none;
+.row_line{
+  width: 50%;
+  padding: 5px;
 }
-.list {
-  margin-bottom: 100px;
-}
-.item {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 0.8em;
-}
-.item-image img {
-  border-radius: 20px;
-  vertical-align: top;
-}
-.item-detail {
-  margin: 0 0 0 1.4em;
-}
-.item-name {
-  font-size: 75%;
-}
-.item-message {
-  position: relative;
-  display: inline-block;
-  padding: 0.8em;
-  background: #deefe8;
-  border-radius: 4px;
-  line-height: 1.2em;
-}
-.item-message::before {
-  position: absolute;
-  content: " ";
+.btn_line{
   display: block;
-  left: -16px;
-  bottom: 12px;
-  border: 4px solid transparent;
-  border-right: 12px solid #deefe8;
+  width: 100%;
+  text-align: center;
+  border-radius: 100px;
+  border: 1px solid #000;
+  font-size: 14px;
+  padding: 5px 0;
 }
-.send-button {
-  height: 4em;
+.btn_line.current{
+  background: #1f2875;
+  color: #fff;
 }
-/* トランジション用スタイル */
-.chat-enter-active {
-  transition: all 1s;
+
+.row_station{
+  width: 100%;
 }
-.chat-enter {
-  opacity: 0;
-  transform: translateX(-1em);
+.btn_station{
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 20px 20px 20px 50px;
+  border: 1px solid #b0b0b0;
+  font-weight: bold;
 }
+.btn_station:before{
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  color: #333;
+  border-radius: 100px;
+}
+.btn_station.red{
+  color: #d00000;
+}
+.btn_station.red:before{
+  border: none;
+  background: #d00000;
+}
+.btn_station.blue{
+  color: #0098d0;
+}
+.btn_station.blue:before{
+  border: none;
+  background: #0098d0;
+}
+
 </style>

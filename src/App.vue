@@ -28,7 +28,7 @@
       <div class="block_line">
         <h2 class="title">路線を選択</h2>
         <div v-for="(value) in LineListName" class="row_line">
-          <button onclick="" class="btn_line">{{value.linename}}</button>
+          <button onclick="" class="btn_line">{{value.LineName}}</button>
         </div>
       </div>
       
@@ -66,7 +66,7 @@ export default {
       input: '',  // 入力したメッセージ
       Station: [], //設定している駅
       Color: '',
-      localStaion: localJson.Station,
+      localStaion: localJson.StationFirebaseOnlyList,
       StationName: '',
       LineListName: localJson.LineList,
       MidousujiSort: 0,

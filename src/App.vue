@@ -29,7 +29,7 @@
 
     
    
-
+<!--
     <section v-for="{ key, name, image, message } in chat" :key="key" class="item">
         <div class="item-image"><img :src="image" width="40" height="40"></div>
         <div class="item-detail">
@@ -40,6 +40,7 @@
           </div>
         </div>
       </section>
+      -->
       <!-- 入力フォーム -->
       <!--
     <form action="" @submit.prevent="doSend" class="form">

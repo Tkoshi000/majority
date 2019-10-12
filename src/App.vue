@@ -26,13 +26,17 @@
       <!-- <tab-menu></tab-menu>
       <router-view/> -->
       <div class="block_line">
+        <h2 class="title">路線を選択</h2>
         <div v-for="(value) in LineListName" class="row_line">
           <button onclick="" class="btn_line">{{value.linename}}</button>
         </div>
       </div>
       
-      <div class="row_station" v-for="(value) in localStaion" key:id>
-        <button v-if="value.Visible" class="btn_station">{{value.name}}</button>
+      <div class="block_station">
+        <h2 class="title">獲得する駅を選択</h2>
+        <div class="row_station" v-for="(value) in localStaion" key:id>
+          <button v-if="value.Visible" class="btn_station">{{value.name}}</button>
+        </div>
       </div>
 
     </div>
@@ -166,10 +170,13 @@ body{
   background: #1f2875;
   padding: 10px 0;
 }
+.header h1{
+  margin-bottom: 0;
+}
 .header img{
   display: block;
   margin: 0 auto;
-  height: 60px;
+  height: 30px;
 }
 .wrapper{
   max-width: 800px;
@@ -200,6 +207,16 @@ button{
 .block_line{
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.title{
+  color: #1f2875;
+  border-bottom: 2px solid #1f2875;
+  width: 100%;
+  font-size: 20px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
 }
 .row_line{
   width: 50%;

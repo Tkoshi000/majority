@@ -43,9 +43,10 @@ export default {
       }
       else{
         this.StyleColor="background:" + BeforeColor;
-      }
-      
+      }  
     }
+
+  
   }
 
 }

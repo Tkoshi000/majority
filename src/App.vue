@@ -27,9 +27,11 @@
       <router-view/> -->
       <div class="block_line">
         <h2 class="title">路線を選択</h2>
-        <!-- <div v-for="(value) in LineListName" class="row_line">
-          <button onclick="" class="btn_line">{{value.LineName}}</button>
-        </div>-->
+        <div class="row_line"  v-for="(value) in LineListName" v-bind:key="value">
+          <button 
+            onclick="" 
+            class="btn_line">{{value.LineName}}</button>
+        </div>
       </div>
 
       <div class="block_station">

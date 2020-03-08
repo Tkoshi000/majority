@@ -27,15 +27,22 @@
       <router-view/> -->
       <div class="block_line">
         <h2 class="title">路線を選択</h2>
-        <div v-for="(value) in LineListName" class="row_line">
+        <!-- <div v-for="(value) in LineListName" class="row_line">
           <button onclick="" class="btn_line">{{value.LineName}}</button>
-        </div>
+        </div>-->
       </div>
-      
+
       <div class="block_station">
         <h2 class="title">獲得する駅を選択</h2>
-        <div class="row_station" v-for="(value) in localStaion" key:id>
-          <button v-if="value.Visible" class="btn_station">{{value.name}}</button>
+        <div class="row_station" v-for="(value) in localStaion" v-bind:key="value">
+          <Showmetrolinebutton
+            v-bind:LineVisible="value.Visible"
+            BeforeColor="White"
+            ColorChoose="Red"
+            v-bind:LineName="value.LineName"
+            v-bind:StationName="value.name"
+            >
+          </Showmetrolinebutton>
         </div>
       </div>
 
@@ -46,18 +53,15 @@
 
 <script>
 
-import TabMenu from '@/components/TabMenu'
 // firebase モジュール
 import firebase from 'firebase'
-// 改行を <br> タグに変換するモジュール
-import Nl2br from 'vue-nl2br'
 import localJson from './assets/MetroList.json'
+import Showmetrolinebutton from '@/components/ShowMetroLineButton'
 
 export default {
   name: 'App',
   components: {
-    TabMenu,
-    Nl2br
+    Showmetrolinebutton
   },
   data(){
     return {
@@ -98,32 +102,8 @@ export default {
     doLogout() {
       firebase.auth().signOut()
     },
-    // スクロール位置を一番下に移動
-    scrollBottom() {
-      this.$nextTick(() => {
-        window.scrollTo(0, document.body.clientHeight)
-      })
-    },
-    
-    childUpdate(snap){
-        var database = firebase.database();
-        ref.once('Station', (snapshot) => {
-          snapshot.forEach((childSnapshot) => {
-            var childKey = childSnapshot.key;
-            this.Station = childSnapshot.val();
-            
-          });
-        });
-        
-    },
-    
-    readColor(){
-      let updates = {}
-      updates['Staion/Color'] = "White"
-      firebaseDatabase.ref().update(updates) 
-    },
 
-
+    },
 
     // 受け取ったメッセージをchatに追加
     // データベースに新しい要素が追加されると随時呼び出される
@@ -149,10 +129,9 @@ export default {
         })
       }
     }
-  } 
-  
-}
 
+
+}
 
 
 </script>

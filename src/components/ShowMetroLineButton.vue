@@ -38,7 +38,13 @@ export default {
   },
   methods: {
     ColorChange: function(BeforeColor,afterColor) {
-      this.StyleColor="background:" + afterColor;
+      if(this.StyleColor=="background:"+BeforeColor){
+        this.StyleColor="background:" + afterColor;
+      }
+      else{
+        this.StyleColor="background:" + BeforeColor;
+      }
+      
     }
   }
 

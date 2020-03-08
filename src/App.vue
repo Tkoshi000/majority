@@ -30,7 +30,11 @@
         <div class="row_line"  v-for="(value) in LineListName" v-bind:key="value">
           <button 
             onclick="" 
-            class="btn_line">{{value.LineName}}</button>
+            class="btn_line"
+            >
+            {{value.LineName}}
+            
+          </button>
         </div>
       </div>
 
@@ -59,6 +63,8 @@
 import firebase from 'firebase'
 import localJson from './assets/MetroList.json'
 import Showmetrolinebutton from '@/components/ShowMetroLineButton'
+import "firebase/auth"
+import "firebase/firestore"
 
 export default {
   name: 'App',
